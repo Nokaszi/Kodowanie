@@ -1,0 +1,10 @@
+C:\Users\Tomek\source\repos\Projekt\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\Tomek\source\repos\Projekt\Projekt\bin\Debug\Projekt.exe
+C:\Users\Tomek\source\repos\Projekt\Projekt\bin\Debug\Projekt.pdb
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.Form1.resources
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.exe
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.pdb

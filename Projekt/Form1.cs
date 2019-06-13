@@ -16,5 +16,46 @@ namespace Projekt
         {
             InitializeComponent();
         }
+        #region Properties
+        public string CurrentPath
+        {
+            get
+            {
+                return textPath.Text;
+            }
+            set
+            {
+                textPath.Text = value;
+            }
+        }
+        public string[] Drives
+        {
+            set
+            {
+                comboDrives.Items.Clear();
+                comboDrives.Items.AddRange(value);
+                comboDrives.Refresh();
+            }
+        }
+        public string[] Files
+        {
+            set
+            {
+                listFiles.Items.Clear();
+                if (CurrentPath.Length > 3)
+                {
+                    listFiles.Items.Add("...");
+                }
+                listFiles.Items.AddRange(value);
+                listFiles.Refresh();
+
+            }
+        }
+        #endregion
+
+        #region Events
+        public event Action LoadingFiles;
+        public event Action LoadingDrives;
+        #endregion
     }
 }
