@@ -57,5 +57,74 @@ namespace Projekt
         public event Action LoadingFiles;
         public event Action LoadingDrives;
         #endregion
+
+        private void Form_LoadingFiles()
+        {
+            if (LoadingFiles != null)
+            {
+                LoadingFiles();
+            }
+        }
+        private void Form_LoadingDrives()
+        {
+            if (LoadingDrives != null)
+            {
+                LoadingDrives();
+            }
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            Form_LoadingDrives();
+            CurrentPath = "C:\\";
+            Form_LoadingFiles();
+            buttonDekodowanie.Enabled = false;
+            buttonKodowanie.Enabled = false;
+            
+        }
+
+        private void comboDrives_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboDrives.SelectedIndex>-1)
+            CurrentPath = comboDrives.SelectedItem.ToString();
+            Form_LoadingFiles();
+        }
+
+        private void listFiles_DoubleClick(object sender, EventArgs e)
+        {
+            if (listFiles.SelectedItem != null && listFiles.SelectedIndex > -1 && listFiles.SelectedItem.ToString().StartsWith("<F>") == false)
+            {
+                if (listFiles.SelectedItem.ToString().Equals("..."))
+                {
+                    CurrentPath = CurrentPath.Remove(CurrentPath.Length - 1);
+                    CurrentPath = CurrentPath.Remove(CurrentPath.LastIndexOf(@"\") + 1);
+                    LoadingFiles();
+
+                }
+                else
+                {
+                    if (LoadingFiles != null)
+                    {
+                        CurrentPath += listFiles.SelectedItem.ToString().Remove(0, 3) + "\\";
+                        LoadingFiles();
+                    }
+                }
+
+            }
+        }
+
+        private void listFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listFiles.SelectedIndex>0)
+            {
+                buttonKodowanie.Enabled = true;
+                buttonDekodowanie.Enabled = true;
+            }
+            else
+            {
+                buttonKodowanie.Enabled = false;
+                buttonDekodowanie.Enabled = false;
+            }
+        }
     }
 }
