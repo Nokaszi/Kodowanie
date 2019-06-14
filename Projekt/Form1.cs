@@ -64,6 +64,8 @@ namespace Projekt
             {
                 LoadingFiles();
             }
+            buttonDekodowanie.Enabled = false;
+            buttonKodowanie.Enabled = false;
         }
         private void Form_LoadingDrives()
         {
@@ -78,8 +80,6 @@ namespace Projekt
             Form_LoadingDrives();
             CurrentPath = "C:\\";
             Form_LoadingFiles();
-            buttonDekodowanie.Enabled = false;
-            buttonKodowanie.Enabled = false;
             
         }
 
@@ -125,6 +125,18 @@ namespace Projekt
                 buttonKodowanie.Enabled = false;
                 buttonDekodowanie.Enabled = false;
             }
+        }
+
+        private void buttonKodowanie_Click(object sender, EventArgs e)
+        {
+            Form3 windowKodowanie = new Form3("Kodowanie");
+            windowKodowanie.ShowDialog();
+        }
+
+        private void buttonDekodowanie_Click(object sender, EventArgs e)
+        {
+            Form3 windowKodowanie = new Form3("Dekodowanie");
+            windowKodowanie.ShowDialog();
         }
     }
 }

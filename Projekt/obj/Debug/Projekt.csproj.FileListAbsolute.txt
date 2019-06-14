@@ -8,3 +8,4 @@ C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.csproj.GenerateRes
 C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
 C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.exe
 C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.pdb
+C:\Users\Tomek\source\repos\Projekt\Projekt\obj\Debug\Projekt.Form3.resources

@@ -56,6 +56,7 @@
             this.buttonKodowanie.TabIndex = 1;
             this.buttonKodowanie.Text = "Kodowanie";
             this.buttonKodowanie.UseVisualStyleBackColor = false;
+            this.buttonKodowanie.Click += new System.EventHandler(this.buttonKodowanie_Click);
             // 
             // buttonDekodowanie
             // 
@@ -66,6 +67,7 @@
             this.buttonDekodowanie.TabIndex = 2;
             this.buttonDekodowanie.Text = "Dekodowanie";
             this.buttonDekodowanie.UseVisualStyleBackColor = false;
+            this.buttonDekodowanie.Click += new System.EventHandler(this.buttonDekodowanie_Click);
             // 
             // textPath
             // 

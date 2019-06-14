@@ -1,0 +1,131 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Projekt
+{
+    public partial class Form3 : Form, IViewKodowanie
+    {
+        public Form3(string decision )
+        {
+            InitializeComponent();
+            this.decision = decision;
+            if(decision=="Kodowanie")
+            {
+                checkboxToFiles.Text = "Zapisz do pliku";
+            }
+            else
+            {
+                checkboxToFiles.Text = "Klucz z pliku";
+            }
+        }
+        #region Properties
+        public string decision
+        {
+            get
+            {
+                return labelTopic.Text;
+            }
+            set
+            {
+                labelTopic.Text = value;
+            }
+        }
+        public string Key
+        {
+            get
+            {
+                return textKlucz.Text;
+            }
+            set
+            {
+                textKlucz.Text = value;
+            }
+        }
+        public bool InFile
+        {
+            get
+            {
+                if (checkboxToFiles.Checked == true)
+                    return true;
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        #endregion
+        #region Events
+        public event Action Kodowanie1;
+        public event Action Kodowanie2;
+        public event Action Kodowanie3;
+        public event Action Dekodowanie1;
+        public event Action Dekodowanie2;
+        public event Action Dekodowanie3;
+        public event Action Generuj;
+        #endregion
+        private void buttonKodowanie1_Click(object sender, EventArgs e)
+        {
+            if(decision=="Kodowanie" && Kodowanie1!=null)
+            {
+                Kodowanie1();
+                buttonGeneruj.Enabled = true;
+                buttonGeneruj.Visible = true;
+            }
+            else
+            {
+                if(Dekodowanie1!=null)
+                {
+                    Dekodowanie1();
+                }
+                buttonGeneruj.Enabled = false;
+                buttonGeneruj.Visible = false;
+            }
+
+        }
+
+        private void buttonKodowanie2_Click(object sender, EventArgs e)
+        {
+            if (decision == "Kodowanie" && Kodowanie2 != null)
+            {
+                Kodowanie2();
+            }
+            else
+            {
+                if (Dekodowanie2 != null)
+                {
+                    Dekodowanie2();
+                }
+            }
+        }
+
+        private void buttonKodowanie3_Click(object sender, EventArgs e)
+        {
+            if (decision == "Kodowanie" && Kodowanie3 != null)
+            {
+                Kodowanie3();
+            }
+            else
+            {
+                if (Dekodowanie3 != null)
+                {
+                    Dekodowanie3();
+                }
+            }
+        }
+
+        private void buttonGeneruj_Click(object sender, EventArgs e)
+        {
+            if (Generuj != null)
+            {
+                Generuj();
+            }
+        }
+    }
+}
