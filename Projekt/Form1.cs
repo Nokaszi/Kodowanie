@@ -135,7 +135,10 @@ namespace Projekt
 
         private void buttonDekodowanie_Click(object sender, EventArgs e)
         {
+            Model model=new Model();
+            IViewKodowanie viewKodowanie = new Form3("Dekodowanie");
             Form3 windowKodowanie = new Form3("Dekodowanie");
+            PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, viewKodowanie);
             windowKodowanie.ShowDialog();
         }
     }

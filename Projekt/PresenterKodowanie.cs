@@ -10,7 +10,7 @@ namespace Projekt
     {
         IViewKodowanie viewKodowanie;
         Model model;
-        PresenterKodowanie(Model model, IViewKodowanie viewKodowanie)
+        public PresenterKodowanie(Model model, IViewKodowanie viewKodowanie)
         {
             this.model = model;
             this.viewKodowanie = viewKodowanie;
