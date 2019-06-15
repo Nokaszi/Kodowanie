@@ -107,9 +107,10 @@
             // labelTopic
             // 
             this.labelTopic.AutoSize = true;
+            this.labelTopic.Font = new System.Drawing.Font("Mistral", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTopic.Location = new System.Drawing.Point(56, 9);
             this.labelTopic.Name = "labelTopic";
-            this.labelTopic.Size = new System.Drawing.Size(35, 13);
+            this.labelTopic.Size = new System.Drawing.Size(51, 26);
             this.labelTopic.TabIndex = 7;
             this.labelTopic.Text = "label1";
             // 
