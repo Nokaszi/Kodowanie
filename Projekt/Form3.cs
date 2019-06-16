@@ -12,10 +12,10 @@ namespace Projekt
 {
     public partial class Form3 : Form, IViewKodowanie
     {
-        public Form3(string decision )
+        public Form3(string decision,string file )
         {
             InitializeComponent();
-            this.decision = decision;
+            this.decision = decision+" "+file;
             if(decision=="Kodowanie")
             {
                 checkboxToFiles.Text = "Zapisz do pliku";
@@ -30,11 +30,18 @@ namespace Projekt
         {
             get
             {
-                return labelTopic.Text;
+                return labelTopic.Text.Split(' ')[0];
             }
             set
             {
                 labelTopic.Text = value;
+            }
+        }
+        public string pathcoder
+        {
+            get
+            {
+                return labelTopic.Text.Split(' ')[1];
             }
         }
         public string Key
@@ -72,7 +79,7 @@ namespace Projekt
         #endregion
         private void buttonKodowanie1_Click(object sender, EventArgs e)
         {
-            if(decision=="Kodowanie" && Kodowanie1!=null)
+            if(decision.Equals( "Kodowanie") && Kodowanie1!=null)
             {
                 Kodowanie1();
                 buttonGeneruj.Enabled = true;
@@ -80,12 +87,13 @@ namespace Projekt
             }
             else
             {
-                if(Dekodowanie1!=null)
+                buttonGeneruj.Enabled = false;
+                buttonGeneruj.Visible = false;
+                if (Dekodowanie1!=null)
                 {
                     Dekodowanie1();
                 }
-                buttonGeneruj.Enabled = false;
-                buttonGeneruj.Visible = false;
+                
             }
 
         }

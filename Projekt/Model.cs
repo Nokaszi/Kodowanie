@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Projekt
 {
-    class Model
+    class Model:Cryptography
     {
         public string[] GetDrives
         {
@@ -38,6 +39,25 @@ namespace Projekt
                 Files.Add("<F>" + Path.GetFileName(f));
             }
             return Files.ToArray();
+            
         }
+        public void Encrypt_Kodowanie1(string key, string file)
+        {
+            if (File.Exists(file))
+            {
+                string[] text = File.ReadAllLines(file);
+                List<string> lines = new List<string>();
+                foreach (string line in text)
+                {
+                    lines.Add(Encrypt_AES(key, line));
+
+                }
+
+                File.WriteAllLines(Path.GetFileName(file), lines.ToArray());
+                MessageBox.Show("fungo");
+            }
+            else MessageBox.Show("Nie fungo");
+        }
+        
     }
 }

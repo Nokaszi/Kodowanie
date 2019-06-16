@@ -109,6 +109,8 @@ namespace Projekt
                         LoadingFiles();
                     }
                 }
+                buttonKodowanie.Enabled = false;
+                buttonDekodowanie.Enabled = false;
 
             }
         }
@@ -129,16 +131,23 @@ namespace Projekt
 
         private void buttonKodowanie_Click(object sender, EventArgs e)
         {
-            Form3 windowKodowanie = new Form3("Kodowanie");
+            
+            string file = CurrentPath + listFiles.SelectedItem.ToString().Remove(0, 3) + "\\";
+            if (listFiles.SelectedItem.ToString().ToCharArray()[1] == 'F') file=file.Remove(file.Length - 1, 1);
+                Model model = new Model();
+            Form3 windowKodowanie = new Form3("Kodowanie", file);
+            PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, windowKodowanie);
+           
+            
             windowKodowanie.ShowDialog();
         }
 
         private void buttonDekodowanie_Click(object sender, EventArgs e)
         {
-            Model model=new Model();
-            IViewKodowanie viewKodowanie = new Form3("Dekodowanie");
-            Form3 windowKodowanie = new Form3("Dekodowanie");
-            PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, viewKodowanie);
+            string file = CurrentPath + listFiles.SelectedItem.ToString().Remove(0, 3) + "\\";
+            Model model = new Model();
+            Form3 windowKodowanie = new Form3("Dekodowanie",file);
+            PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, windowKodowanie);
             windowKodowanie.ShowDialog();
         }
     }

@@ -11,6 +11,8 @@ namespace Projekt
         string decision { get; set; }
         string Key { get; set; }
         bool InFile { get; }
+        string pathcoder { get; }
+
         event Action Kodowanie1;
         event Action Kodowanie2;
         event Action Kodowanie3;
