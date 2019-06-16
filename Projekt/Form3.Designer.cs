@@ -44,7 +44,7 @@
             this.buttonKodowanie1.Name = "buttonKodowanie1";
             this.buttonKodowanie1.Size = new System.Drawing.Size(100, 65);
             this.buttonKodowanie1.TabIndex = 0;
-            this.buttonKodowanie1.Text = "Kodwanie1";
+            this.buttonKodowanie1.Text = "AES";
             this.buttonKodowanie1.UseVisualStyleBackColor = true;
             this.buttonKodowanie1.Click += new System.EventHandler(this.buttonKodowanie1_Click);
             // 

@@ -134,7 +134,7 @@ namespace Projekt
             
             string file = CurrentPath + listFiles.SelectedItem.ToString().Remove(0, 3) + "\\";
             if (listFiles.SelectedItem.ToString().ToCharArray()[1] == 'F') file=file.Remove(file.Length - 1, 1);
-                Model model = new Model();
+            Model model = new Model();
             Form3 windowKodowanie = new Form3("Kodowanie", file);
             PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, windowKodowanie);
            
@@ -145,6 +145,7 @@ namespace Projekt
         private void buttonDekodowanie_Click(object sender, EventArgs e)
         {
             string file = CurrentPath + listFiles.SelectedItem.ToString().Remove(0, 3) + "\\";
+            if (listFiles.SelectedItem.ToString().ToCharArray()[1] == 'F') file = file.Remove(file.Length - 1, 1);
             Model model = new Model();
             Form3 windowKodowanie = new Form3("Dekodowanie",file);
             PresenterKodowanie presenterKodowanie = new PresenterKodowanie(model, windowKodowanie);

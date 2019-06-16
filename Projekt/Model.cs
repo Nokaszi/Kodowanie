@@ -45,18 +45,36 @@ namespace Projekt
         {
             if (File.Exists(file))
             {
-                string[] text = File.ReadAllLines(file);
-                List<string> lines = new List<string>();
-                foreach (string line in text)
-                {
-                    lines.Add(Encrypt_AES(key, line));
+                string text = File.ReadAllText(file);
+                // List<string> lines = new List<string>();
+                // foreach (string line in text)
+                // {
+                //lines.Add(Encrypt_AES(key, line));
 
-                }
+                // }
 
-                File.WriteAllLines(Path.GetFileName(file), lines.ToArray());
+                // File.WriteAllLines(@"c:\Debian\on\"+Path.GetFileName(file), lines.ToArray());
+                File.WriteAllText(@"c:\Debian\on\" + Path.GetFileName(file), Encrypt_AES(key,text));
                 MessageBox.Show("fungo");
             }
             else MessageBox.Show("Nie fungo");
+        }
+        public void Decrypt_Kodowanie1(string key, string file)
+        {
+            if (File.Exists(file))
+            {
+                string text = File.ReadAllText(file);
+               // List<string> lines = new List<string>();
+               // foreach (string line in text)
+               // {
+              //      lines.Add(Decrypt_AES(key,line));
+
+               // }
+
+                File.WriteAllText(@"c:\Debian\n\"+Path.GetFileName(file),Decrypt_AES(key,text));
+                MessageBox.Show("fungo decrypt");
+            }
+            else MessageBox.Show("Nie fungo decrypt");
         }
         
     }
