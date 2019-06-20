@@ -41,24 +41,70 @@ namespace Projekt
             return Files.ToArray();
             
         }
-        public void Encrypt_Kodowanie1(string key, string file)
+        public void Encrypt_Kodowanie1(string key, string path, bool inFile, string outputPath)
         {
-            if (File.Exists(file))
+            if (inFile == true)
             {
-                Encrypt_AES(key, file,Path.GetFullPath(file));
-                MessageBox.Show("fungo");
+                File.WriteAllText("moje_zdjęcie.jpg", key);
             }
-            else MessageBox.Show("Nie fungo");
+            if (File.Exists(path))
+            {
+                Encrypt_AES(key, path,outputPath);
+            }
+            if (Directory.Exists(path))
+            {
+
+                if (!Directory.Exists(outputPath))
+                {
+                    Directory.CreateDirectory(outputPath);
+                }
+                string[] files = Directory.GetFiles(path);
+                foreach (string file in files)
+                {
+                    string name = Path.GetFileName(file);
+
+                    Encrypt_Kodowanie1(key, file, false, Path.Combine(outputPath,name));
+                }
+                string[] folders = Directory.GetDirectories(path);
+                foreach (string folder in folders)
+                {
+                    string name = Path.GetFileName(folder);
+                    Encrypt_Kodowanie1(key, folder, false, Path.Combine(outputPath, name));
+                }
+            }
+        
         }
-        public void Decrypt_Kodowanie1(string key, string file)
+        public void Decrypt_Kodowanie1(string key, string path, bool withFile, string outputPath)
         {
-            if (File.Exists(file))
+            if (File.Exists(path))
             {
-                //Directory.CreateDirectory(@"\Decrypt");
-                Decrypt_AES(key, file, Path.GetFullPath(file));
-                MessageBox.Show("fungo decrypt");
+                if (withFile == true && File.Exists(key))
+                {
+                    key = File.ReadAllText(key);
+                }
+                Decrypt_AES(key, path, outputPath);
             }
-            else MessageBox.Show("Nie fungo decrypt");
+            if (Directory.Exists(path))
+            {
+
+                if (!Directory.Exists(outputPath))
+                {
+                    Directory.CreateDirectory(outputPath);
+                }
+                string[] files = Directory.GetFiles(path);
+                foreach (string file in files)
+                {
+                    string name = Path.GetFileName(file);
+
+                    Decrypt_Kodowanie1(key, file, false, Path.Combine(outputPath, name));
+                }
+                string[] folders = Directory.GetDirectories(path);
+                foreach (string folder in folders)
+                {
+                    string name = Path.GetFileName(folder);
+                    Decrypt_Kodowanie1(key, folder, false, Path.Combine(outputPath, name));
+                }
+            }
         }
         
     }

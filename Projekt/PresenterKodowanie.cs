@@ -19,11 +19,11 @@ namespace Projekt
         }
         private void view_encoding_AES()
         {
-            model.Encrypt_Kodowanie1(viewKodowanie.Key, viewKodowanie.pathcoder);
+            model.Encrypt_Kodowanie1(viewKodowanie.Key, viewKodowanie.pathcoder,viewKodowanie.InFile,"Kodowanie_AES");
         }
         private void view_decoding_AES()
         {
-            model.Decrypt_Kodowanie1(viewKodowanie.Key, viewKodowanie.pathcoder);
+            model.Decrypt_Kodowanie1(viewKodowanie.Key, viewKodowanie.pathcoder,viewKodowanie.InFile,"Dekodowanie_AES");
         }
     }
 }

@@ -86,8 +86,6 @@ namespace Projekt
                 try
                 {
                     Kodowanie1();
-                    buttonGeneruj.Enabled = true;
-                    buttonGeneruj.Visible = true;
                     MessageBox.Show("Kodowanie zakończone sukcesem", "Sukces");
                 }
                 catch
@@ -99,8 +97,6 @@ namespace Projekt
             {
                 try
                 {
-                    buttonGeneruj.Enabled = false;
-                    buttonGeneruj.Visible = false;
                     if (Dekodowanie1 != null)
                     {
                         Dekodowanie1();
