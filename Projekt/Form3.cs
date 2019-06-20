@@ -23,6 +23,8 @@ namespace Projekt
             else
             {
                 checkboxToFiles.Text = "Klucz z pliku";
+                buttonGeneruj.Enabled = false;
+                buttonGeneruj.Visible = false;
             }
         }
         #region Properties
@@ -79,19 +81,36 @@ namespace Projekt
         #endregion
         private void buttonKodowanie1_Click(object sender, EventArgs e)
         {
-            if(decision.Equals( "Kodowanie") && Kodowanie1!=null)
+            if(decision.Equals("Kodowanie") && Kodowanie1!=null)
             {
-                Kodowanie1();
-                buttonGeneruj.Enabled = true;
-                buttonGeneruj.Visible = true;
+                try
+                {
+                    Kodowanie1();
+                    buttonGeneruj.Enabled = true;
+                    buttonGeneruj.Visible = true;
+                    MessageBox.Show("Kodowanie zakończone sukcesem", "Sukces");
+                }
+                catch
+                {
+                    MessageBox.Show("Wystąpił błąd", "Error");
+                }
             }
             else
             {
-                buttonGeneruj.Enabled = false;
-                buttonGeneruj.Visible = false;
-                if (Dekodowanie1!=null)
+                try
                 {
-                    Dekodowanie1();
+                    buttonGeneruj.Enabled = false;
+                    buttonGeneruj.Visible = false;
+                    if (Dekodowanie1 != null)
+                    {
+                        Dekodowanie1();
+                    }
+                    MessageBox.Show("Dekodowanie zakończone sukcesem", "Sukces");
+                }
+                
+                catch
+                {
+                    MessageBox.Show("Wystąpił błąd", "Error");
                 }
                 
             }
